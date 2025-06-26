@@ -1,4 +1,4 @@
-# proyecto
+# To do List with Vue js
 
 ## Project setup
 ```
