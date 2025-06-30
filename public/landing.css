@@ -1,0 +1,153 @@
+body {
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.hero-wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.hero-wave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 55px;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.blob-1 {
+  top: 10%;
+  left: 10%;
+  width: 300px;
+  height: 300px;
+  background: rgba(77, 208, 225, 0.4);
+}
+
+.blob-2 {
+  bottom: 20%;
+  right: 15%;
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 138, 101, 0.4);
+}
+
+.blob-3 {
+  top: 60%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 213, 79, 0.4);
+}
+
+.task-icon {
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .task-icon {
+  transform: scale(1.1);
+}
+
+.pricing-card {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+}
+
+.free-plan:hover {
+  border-color: #4dd0e1;
+}
+
+.pro-plan:hover {
+  border-color: #ff8a65;
+}
+
+.btn-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(77, 208, 225, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(77, 208, 225, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(77, 208, 225, 0);
+  }
+}
+
+.hamburger {
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  .desktop-menu {
+    display: none;
+  }
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 50;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  .mobile-menu.show {
+    transform: translateX(0);
+  }
+}
+
+.checklist-item {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.checklist-item:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #4dd0e1;
+  background-color: white;
+}
+
+.checklist-item.checked:before {
+  background-color: #4dd0e1;
+}
+
+.checklist-item.checked:after {
+  content: "✓";
+  position: absolute;
+  left: 5px;
+  top: 0;
+  color: white;
+  font-weight: bold;
+}

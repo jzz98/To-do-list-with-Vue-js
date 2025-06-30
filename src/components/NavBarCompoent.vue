@@ -1,96 +1,89 @@
 <template>
-<nav class="app-navbar" v-bind:class="{ active_nav: isactive }">
-  <div class="navbar-container">
-    <div class="navbar-brand-container">
-      <a class="navbar-brand" href="#">NavBar</a>
-      <button class="navbar-toggler" @click="toggleMobileMenu()">
-        <span class="toggler-icon"></span>
-        <span class="toggler-icon"></span>
-        <span class="toggler-icon"></span>
+  <nav class="relative container mx-auto p-6 z-10">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center">
+        <span class="text-3xl font-bold text-darkBlue">Task<span class="text-teal">Joy</span></span>
+      </div>
+      
+      <!-- Desktop Menu -->
+      <div class="desktop-menu hidden md:flex space-x-6">
+        <a href="#features" class="hover:text-teal transition-colors duration-300">Funcionalidades</a>
+        <a href="#pricing" class="hover:text-teal transition-colors duration-300">Precios</a>
+        <a href="#contact" class="hover:text-teal transition-colors duration-300">Contacto</a>
+      </div>
+      
+      <!-- Desktop Buttons -->
+      <div class="hidden md:flex space-x-4">
+        <a href="javascript:void(0)" class="px-5 py-2 text-teal border border-teal rounded-full hover:bg-teal hover:text-white transition-colors duration-300">Iniciar sesión</a>
+        <a href="javascript:void(0)" class="px-5 py-2 text-white bg-teal rounded-full hover:bg-opacity-90 transition-colors duration-300">Registrarse</a>
+      </div>
+      
+      <!-- Mobile menu button -->
+      <button class="md:hidden focus:outline-none">
+        <i class="fa-solid fa-bars text-2xl text-darkBlue"></i>
       </button>
     </div>
     
-    <div class="navbar-collapse" :class="{ 'show-menu': showMobileMenu }">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" @click="toggleDropdown($event)">
-            Explore
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">More options</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-      </ul>
-      
-      <div class="navbar-actions">
-        <div class="search-container">
-          <input class="search-input" type="search" placeholder="Search..." />
-          <button class="search-button">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-          </button>
-        </div>
-        <button class="theme-toggle" @click="changeTheme()">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-        </button>
+    <!-- Mobile menu -->
+    <div class="mobile-menu md:hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center p-8">
+      <button class="absolute top-6 right-6 text-2xl">
+        <i class="fa-solid fa-times"></i>
+      </button>
+      <div class="flex flex-col items-center space-y-8 text-xl">
+        <a href="#features" class="hover:text-teal transition-colors duration-300">Funcionalidades</a>
+        <a  href="#pricing" class="hover:text-teal transition-colors duration-300">Precios</a>
+        <a  href="#contact" class="hover:text-teal transition-colors duration-300">Contacto</a>
+        <a href="javascript:void(0)" class="px-5 py-2 text-teal border border-teal rounded-full hover:bg-teal hover:text-white transition-colors duration-300 w-full text-center">Iniciar sesión</a>
+        <a href="javascript:void(0)" class="px-5 py-2 text-white bg-teal rounded-full hover:bg-opacity-90 transition-colors duration-300 w-full text-center">Registrarse</a>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
 </template>
 
-<script>
-export default {
-  name: 'NavBarComponent',
-  data() {
-    return {
-      message: "Navbar",
-      isactive: false
-    }
-  },
-  methods: {
-    changeTheme(){
-      this.isactive = !this.isactive
-    }
-  },
-}
-</script>
-
 <style>
-
-.app-navbar.active_nav{
-  background-color: black;
+/* Estilos para el navbar */
+.mobile-menu {
+  transition: all 0.3s ease-in-out;
 }
 
-.active_nav .nav-link {
-  color: white !important;
+/* Asegurar que el navbar se mantenga en la parte superior */
+nav {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
-.active_nav .navbar-brand{
-  color: white;
+/* Estilos para los enlaces */
+.nav-link {
+  position: relative;
 }
-</style>
+
+.nav-link:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #4dd0e1;
+  transform: scaleX(1);
+  transition: transform 0.3s ease;
+}
+
+/* Animación para el menú móvil */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-menu a {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.mobile-menu a:nth-child(1) { animation-delay: 0.1s; }
+.mobile-menu a:nth-child(2) { animation-delay: 0.2s; }
+.mobile-menu a:nth-child(3) { animation-delay: 0.3s; }
+.mobile-menu a:nth-child(4) { animation-delay: 0.4s; }
+.mobile-menu a:nth-child(5) { animation-delay: 0.5s; }
+</style> 
