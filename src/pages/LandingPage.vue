@@ -1,6 +1,7 @@
 <script setup>
 import NavBarCompoent from '@/components/NavBarCompoent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
+import MiniTaskList from '@/components/addons/MiniTaskList.vue';
 </script>
 <template>
   <!-- Background blobs -->
@@ -31,34 +32,7 @@ import FooterComponent from '@/components/FooterComponent.vue';
           </a>
         </div>
       </div>
-      <div class="md:w-1/2 mb-10 md:mb-0 z-10">
-        <div class="relative max-w-md mx-auto">
-          <div class="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-teal">
-            <h3 class="text-xl font-bold mb-4 flex items-center">
-              <span class="w-3 h-3 bg-teal rounded-full mr-2"></span>
-              Mis Tareas
-            </h3>
-            
-            <div class="space-y-3 mt-6">
-              <div class="checklist-item checked">Preparar presentación proyecto</div>
-              <div class="checklist-item checked">Reunión con cliente</div>
-              <div class="checklist-item">Revisar correos pendientes</div>
-              <div class="checklist-item">Planificar sprint semanal</div>
-              <div class="checklist-item">Actualizar documentación</div>
-            </div>
-            
-            <div class="mt-6 flex rounded-lg border border-gray-200">
-              <input type="text" placeholder="Añadir nueva tarea..." class="flex-grow px-4 py-2 bg-transparent focus:outline-none">
-              <button class="bg-teal text-white px-4 rounded-r-lg">
-                <i class="fa-solid fa-plus"></i>
-              </button>
-            </div>
-          </div>
-          
-          <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-coral opacity-20 rounded-full"></div>
-          <div class="absolute -top-4 -left-4 w-16 h-16 bg-yellow opacity-20 rounded-full"></div>
-        </div>
-      </div>
+      <MiniTaskList />
     </div>
     
     <div class="hero-wave">

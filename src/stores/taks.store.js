@@ -2,9 +2,11 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 export const useTasksStore = defineStore("Tasks", () => {
-    const list = ref([])
+    let list = ref([])
+    let mini_tasks = ref([])
 
     return {
-        list
+        list,
+        mini_tasks
     }
 })
