@@ -1,3 +1,21 @@
+<script setup>
+import { ref } from 'vue';
+import LoginComponent from './auth/LoginComponent.vue';
+import RegitserComponent from './auth/RegitserComponent.vue';
+
+const showingModal = ref(false)
+const showingModalRegister = ref(false)
+
+const openModal = () =>{
+  showingModal.value = true
+
+}
+
+const openModalRegister = () => {
+  showingModalRegister.value = true
+}
+
+</script>
 <template>
   <nav class="relative container mx-auto p-6 z-10">
     <div class="flex items-center justify-between">
@@ -14,8 +32,8 @@
       
       <!-- Desktop Buttons -->
       <div class="hidden md:flex space-x-4">
-        <a href="javascript:void(0)" class="px-5 py-2 text-teal border border-teal rounded-full hover:bg-teal hover:text-white transition-colors duration-300">Iniciar sesión</a>
-        <a href="javascript:void(0)" class="px-5 py-2 text-white bg-teal rounded-full hover:bg-opacity-90 transition-colors duration-300">Registrarse</a>
+        <a @click="openModal" class="px-5 py-2 text-teal border border-teal rounded-full hover:bg-teal hover:text-white transition-colors duration-300">Iniciar sesión</a>
+        <a @click="openModalRegister" class="px-5 py-2 text-white bg-teal rounded-full hover:bg-opacity-90 transition-colors duration-300">Registrarse</a>
       </div>
       
       <!-- Mobile menu button -->
@@ -33,11 +51,14 @@
         <a href="#features" class="hover:text-teal transition-colors duration-300">Funcionalidades</a>
         <a  href="#pricing" class="hover:text-teal transition-colors duration-300">Precios</a>
         <a  href="#contact" class="hover:text-teal transition-colors duration-300">Contacto</a>
-        <a href="javascript:void(0)" class="px-5 py-2 text-teal border border-teal rounded-full hover:bg-teal hover:text-white transition-colors duration-300 w-full text-center">Iniciar sesión</a>
-        <a href="javascript:void(0)" class="px-5 py-2 text-white bg-teal rounded-full hover:bg-opacity-90 transition-colors duration-300 w-full text-center">Registrarse</a>
+        <a class="px-5 py-2 text-teal border border-teal rounded-full hover:bg-teal hover:text-white transition-colors duration-300 w-full text-center">Iniciar sesión</a>
+        <a class="px-5 py-2 text-white bg-teal rounded-full hover:bg-opacity-90 transition-colors duration-300 w-full text-center">Registrarse</a>
       </div>
     </div>
   </nav>
+  
+  <LoginComponent v-model:showing-modal="showingModal"/>
+  <RegitserComponent v-model:showing-modal-register="showingModalRegister"/>
 </template>
 
 <style>
