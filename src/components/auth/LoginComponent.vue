@@ -17,7 +17,12 @@ const closeModal = () => {
 
 
 const verifyModal = () => {
+  let data_user = JSON.parse(localStorage.getItem("data_user"))
 
+  if(data_user[0].email !== dataForm.email || data_user[0].password !== dataForm.password){
+    alert('las credenciales no coinciden')
+  }
+  window.location.href = '/home'
 }
 </script>
 
