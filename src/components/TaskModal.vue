@@ -18,7 +18,7 @@ function addTask(){
     const due = document.getElementById("task-due-date")
     const priority = document.getElementById("task-priority")
     const status = document.getElementById('task-status')
-
+  
     let lista = JSON.parse(localStorage.getItem("clave")) || [];
 
     lista.push({ title: title.value, time: due.value , priority: priority.value , status: status.value});

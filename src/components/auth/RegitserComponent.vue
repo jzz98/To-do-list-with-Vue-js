@@ -44,6 +44,8 @@ const createUser = () => {
 
     localStorage.setItem("data_user", JSON.stringify(list));
 
+    window.location.href = '/home'
+
 }
 
 </script>
